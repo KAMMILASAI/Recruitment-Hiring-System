@@ -1,0 +1,92 @@
+<template>
+
+    <lightning-card title="Offer Details">
+
+        <div class="slds-p-around_medium">
+
+            <template if:true={isPending}>
+                <div class="slds-text-align_center slds-m-bottom_medium">
+
+                    <h1 class="slds-text-heading_large">
+                        🎉 Congratulations!
+                    </h1>
+
+                    <p class="slds-text-body_regular">
+                        You have received a job offer.
+                    </p>
+
+                </div>
+            </template>
+
+            <lightning-layout multiple-rows>
+
+                <lightning-layout-item 
+                    size="12"
+                    padding="around-small">
+
+                    <b>Role Name:</b>
+                    {jobName}
+                </lightning-layout-item>
+                <lightning-layout-item 
+                    size="12"
+                    padding="around-small">
+                    <b>Salary:</b>
+                    {salary}
+                </lightning-layout-item>
+                <lightning-layout-item 
+                    size="12"
+                    padding="around-small">
+
+                    <b>Status:</b>
+                    {status}
+
+                </lightning-layout-item>
+
+
+            </lightning-layout>
+
+
+            <div class="slds-m-top_medium slds-align_absolute-center">
+
+                <template if:true={isPending}>
+
+                    <lightning-button
+                        label="Accept Offer"
+                        variant="success"
+                        onclick={handleAccept}
+                        class="slds-m-right_small">
+                    </lightning-button>
+
+
+                    <lightning-button
+                        label="Reject Offer"
+                        variant="destructive"
+                        onclick={handleReject}>
+                    </lightning-button>
+
+                </template>
+
+                <template if:true={isAccepted}>
+
+                    <lightning-button
+                        label="Offer Accepted"
+                        variant="success"
+                        disabled>
+                    </lightning-button>
+
+                </template>
+
+                <template if:true={isRejected}>
+
+                    <lightning-button
+                        label="Offer Rejected"
+                        variant="destructive"
+                        disabled>
+                    </lightning-button>
+
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+
+</template>

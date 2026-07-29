@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Interview Panel">
+
+        <div class="slds-p-around_medium slds-align_absolute-center">
+
+            <template if:true={isPending}>
+                <lightning-button 
+                    label="Pass"
+                    variant="success"
+                    onclick={handlePass}
+                    class="slds-m-right_small">
+                </lightning-button>
+
+                <lightning-button 
+                    label="Fail"
+                    variant="destructive"
+                    onclick={handleFail}>
+                </lightning-button>
+            </template>
+
+            <template if:true={isPass}>
+                <lightning-button 
+                    label="Pass"
+                    variant="success"
+                    disabled>
+                </lightning-button>
+            </template>
+
+            <template if:true={isFail}>
+                <lightning-button 
+                    label="Fail"
+                    variant="destructive"
+                    disabled>
+                </lightning-button>
+            </template>
+
+        </div>
+
+    </lightning-card>
+</template>
